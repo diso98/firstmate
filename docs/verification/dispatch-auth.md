@@ -222,6 +222,8 @@ Logged in using ChatGPT
 ```
 
 The harness detection ran inside the Codex task worker.
+The `codex login status` line was then repeated with the exact environment of the registered Codex worker's native `codex` process, the descendant of that task's recorded tmux pane whose working directory is the recorded worktree, and returned `Logged in using ChatGPT` with exit status `0`.
+That environment had no `CODEX_HOME`, `OPENAI_API_KEY`, or `CODEX_API_KEY`, so Codex used its default store under that process's `HOME`; the login method is the CLI's own output, not inferred.
 The Claude status check was also repeated with the authentication environment selected by the exact recorded Claude pane's native process and returned the same filtered result.
 Both native processes had no `CLAUDE_CONFIG_DIR`, `CODEX_HOME`, `ANTHROPIC_API_KEY`, `ANTHROPIC_AUTH_TOKEN`, `CLAUDE_CODE_OAUTH_TOKEN`, or `OPENAI_API_KEY` in their environment.
 Only variable presence was reported; credential values and account identity were omitted.
